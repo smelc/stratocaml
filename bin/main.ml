@@ -1,3 +1,2 @@
 let () =
-  let person = { Stratocaml.name = "Alice"; age = 30 } in
-  Stratocaml.print_person person
+  print_endline "Hello from stratocaml's main"

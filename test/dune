@@ -1,3 +1,4 @@
 (test
- (name test_stratocaml)
- (libraries stratocaml alcotest))
+ (name test_terraform_state)
+ (libraries stratocaml alcotest)
+ (deps example.tfstate complex.tfstate))

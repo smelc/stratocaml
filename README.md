@@ -2,7 +2,11 @@
 [![shellcheck](https://github.com/smelc/stratocaml/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/smelc/stratocaml/actions/workflows/shellcheck.yml) 
 [![actionlint](https://github.com/smelc/stratocaml/actions/workflows/actionlint.yml/badge.svg)](https://github.com/smelc/stratocaml/actions/workflows/actionlint.yml)
 
-# Development instructions
+# Stratocaml
+
+Faifthful representation of Terraform JSON files in OCaml, starting with the [v4 state file](./lib/terraform_state.ml)
+
+## Development instructions
 
 Install dependencies:
 
