@@ -20,12 +20,12 @@ let test_deserialize_complex_state () =
 
 let () =
   let open Alcotest in
-  run "Terraform State"
+  run "terraform_state"
     [
       ( "deserialization",
         [
-          test_case "Deserialize example state" `Quick test_deserialize_state;
-          test_case "Deserialize complex state" `Quick
+          test_case "deserialize_example_state" `Quick test_deserialize_state;
+          test_case "deserialize_complex_state" `Quick
             test_deserialize_complex_state;
         ] );
     ]
