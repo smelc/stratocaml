@@ -3,4 +3,5 @@
  (public_name stratocaml)
  (modules terraform_state)
  (libraries yojson)
- (preprocess (pps ppx_yojson_conv)))
+ (preprocess
+  (pps ppx_yojson_conv)))
