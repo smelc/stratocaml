@@ -1,7 +1,5 @@
 (* Inspired from https://github.com/hashicorp/terraform/blob/main/internal/states/statefile/version4.go *)
 
-open Ppx_yojson_conv_lib.Yojson_conv.Primitives
-
 type check_results_object_v4 = {
   object_addr : string; [@key "object_addr"]
   status : string; [@key "status"]

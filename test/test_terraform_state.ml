@@ -1,31 +1,35 @@
 open Stratocaml
 
-let of_yojson_result deserializer state =
+(* let of_yojson_result deserializer state =
   try deserializer state |> Result.ok
   with Ppx_yojson_conv_lib.Yojson_conv.Of_yojson_error (Failure what, json) ->
-    Result.Error (what ^ " in " ^ Yojson.Safe.to_string json)
+    Result.Error (what ^ " in " ^ Yojson.Safe.to_string json) *)
 
 let test_deserialize_state () =
   let json_string =
     In_channel.with_open_text "example.tfstate" In_channel.input_all
   in
   let yojson = Yojson.Safe.from_string json_string in
-  let state_result = of_yojson_result Terraform_state.state_v4_of_yojson yojson in
+  let state_result = Terraform_state.state_v4_of_yojson yojson in
   match state_result with
-    | Ok state ->
-        Alcotest.(check int) "version" 4 state.version;
-        Alcotest.(check string) "terraform_version" "1.0.0" state.terraform_version
-    | Error e ->
-        Alcotest.(fail e)
+  | Ok state ->
+      Alcotest.(check int) "version" 4 state.version;
+      Alcotest.(check string)
+        "terraform_version" "1.0.0" state.terraform_version
+  | Error e -> Alcotest.(fail e)
 
 let test_deserialize_complex_state () =
   let json_string =
     In_channel.with_open_text "complex.tfstate" In_channel.input_all
   in
   let yojson = Yojson.Safe.from_string json_string in
-  let state = Terraform_state.state_v4_of_yojson yojson in
-  Alcotest.(check string) "terraform_version" "1.2.3" state.terraform_version;
-  Alcotest.(check int) "resource count" 1 (List.length state.resources)
+  let state_result = Terraform_state.state_v4_of_yojson yojson in
+  match state_result with
+  | Ok state ->
+      Alcotest.(check string)
+        "terraform_version" "1.2.3" state.terraform_version;
+      Alcotest.(check int) "resource count" 1 (List.length state.resources)
+  | Error e -> Alcotest.(fail e)
 
 let () =
   let open Alcotest in

@@ -1,4 +1,4 @@
 (test
  (name test_terraform_state)
- (libraries stratocaml alcotest)
+ (libraries stratocaml alcotest ppx_deriving_yojson.runtime)
  (deps example.tfstate complex.tfstate))

@@ -15,7 +15,7 @@
   odoc
   odoc-parser
   yojson
-  ppx_yojson_conv
+  ppx_deriving_yojson
   (alcotest :with-test)
   (ocamlformat :with-dev-setup)
   (ocaml-lsp-server :with-dev-setup)))
