@@ -25,3 +25,11 @@ Test as usual:
 ```
 dune runtest
 ```
+
+When adding a dependency to `dune-project`:
+
+```
+dune pkg lock
+dune build stratocaml.opam
+opam install . --deps-only --with-doc --with-dev --with-dev-setup
+```
