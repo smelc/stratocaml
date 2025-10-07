@@ -41,3 +41,9 @@ dune pkg lock
 dune build stratocaml.opam
 opam install . --with-dev-setup
 ```
+
+Launch binary:
+
+```
+dune exec stratocaml
+```
