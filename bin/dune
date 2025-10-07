@@ -1,6 +1,6 @@
 (executable
  (name main)
  (public_name stratocaml)
- (libraries stratocaml)
+ (libraries stratocaml melange-json-native)
  (preprocess
-  (pps ppx_deriving_yojson)))
+  (pps ppx_deriving_yojson melange-json-native.ppx)))

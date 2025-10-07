@@ -14,6 +14,7 @@
   ocaml
   odoc
   odoc-parser
+  melange-json-native
   yojson
   ppx_deriving_yojson
   (alcotest :with-test)

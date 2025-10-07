@@ -5,10 +5,11 @@
 } *)
 
 (* open Stratocaml *)
+open Melange_json.Primitives
 
-type pair = { fst : string; snd : string } [@@deriving yojson]
+type pair = { fst : string; snd : string } [@@deriving json]
 
-let () =
+let test_pair_json_json () =
   let test_json =
     {|
     {
@@ -17,7 +18,8 @@ let () =
     } 
 |}
   in
-  let state_result = pair_of_yojson (Yojson.Safe.from_string test_json) in
-  match state_result with
-  | Ok _state -> print_endline "Success"
-  | Error e -> print_endline @@ "Error: " ^ e
+  let melange_json = Yojson.Basic.from_string test_json in
+  let _state_result = pair_of_json melange_json in
+  ()
+
+let () = test_pair_json_json ()

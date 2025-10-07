@@ -1,4 +1,4 @@
-(version 3.10.0)
+(version 3.9.1)
 
 (build
  (progn
@@ -12,6 +12,6 @@
 (source
  (fetch
   (url
-   https://github.com/ocaml-ppx/ppx_deriving_yojson/releases/download/v3.10.0/ppx_deriving_yojson-3.10.0.tbz)
+   https://github.com/ocaml-ppx/ppx_deriving_yojson/releases/download/v3.9.1/ppx_deriving_yojson-3.9.1.tbz)
   (checksum
-   sha256=ced3d265e4287f1f18b09df6446a24444fad52b2a3054cbcbe0c9494d0e89b3f)))
+   sha256=6a3ef7c7bb381f57448853f2a6d2287cf623628162a979587d1e8f7502114f4d)))
