@@ -18,4 +18,5 @@
   ppx_yojson_conv
   (alcotest :with-test)
   (ocamlformat :with-dev-setup)
-  (ocaml-lsp-server :with-dev-setup)))
+  (ocaml-lsp-server :with-dev-setup)
+  (utop :with-dev-setup)))

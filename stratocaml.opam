@@ -16,6 +16,7 @@ depends: [
   "alcotest" {with-test}
   "ocamlformat" {with-dev-setup}
   "ocaml-lsp-server" {with-dev-setup}
+  "utop" {with-dev-setup}
 ]
 build: [
   ["dune" "subst"] {dev}
