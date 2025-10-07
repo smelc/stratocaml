@@ -5,12 +5,17 @@ open Stratocaml
   with Ppx_yojson_conv_lib.Yojson_conv.Of_yojson_error (Failure what, json) ->
     Result.Error (what ^ " in " ^ Yojson.Safe.to_string json) *)
 
+let try_deserialize deserializer state =
+  try deserializer state |> Result.ok
+  with Melange_json.Of_json_error (Melange_json.Json_error err) ->
+    Result.Error err
+
 let test_deserialize_state () =
   let json_string =
     In_channel.with_open_text "example.tfstate" In_channel.input_all
   in
-  let yojson = Yojson.Safe.from_string json_string in
-  let state_result = Terraform_state.state_v4_of_yojson yojson in
+  let yojson = Yojson.Basic.from_string json_string in
+  let state_result = try_deserialize Terraform_state.state_v4_of_json yojson in
   match state_result with
   | Ok state ->
       Alcotest.(check int) "version" 4 state.version;
@@ -22,8 +27,8 @@ let test_deserialize_complex_state () =
   let json_string =
     In_channel.with_open_text "complex.tfstate" In_channel.input_all
   in
-  let yojson = Yojson.Safe.from_string json_string in
-  let state_result = Terraform_state.state_v4_of_yojson yojson in
+  let yojson = Yojson.Basic.from_string json_string in
+  let state_result = try_deserialize Terraform_state.state_v4_of_json yojson in
   match state_result with
   | Ok state ->
       Alcotest.(check string)

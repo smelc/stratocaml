@@ -1,11 +1,13 @@
 (* Inspired from https://github.com/hashicorp/terraform/blob/main/internal/states/statefile/version4.go *)
 
+open Melange_json.Primitives
+
 type check_results_object_v4 = {
   object_addr : string; [@key "object_addr"]
   status : string; [@key "status"]
   failure_messages : string list; [@key "failure_messages"] [@default []]
 }
-[@@deriving yojson]
+[@@deriving json]
 
 type check_results_v4 = {
   object_kind : string; [@key "object_kind"]
@@ -13,7 +15,7 @@ type check_results_v4 = {
   status : string; [@key "status"]
   objects : check_results_object_v4 list; [@key "objects"]
 }
-[@@deriving yojson]
+[@@deriving json]
 
 type instance_object_state_v4 = {
   index_key : [ `Int of int | `String of string ] option;
@@ -32,7 +34,7 @@ type instance_object_state_v4 = {
   create_before_destroy : bool option;
       [@key "create_before_destroy"] [@default None]
 }
-[@@deriving yojson]
+[@@deriving json]
 
 type resource_state_v4 = {
   module_path : string option; [@key "module"] [@default None]
@@ -43,23 +45,23 @@ type resource_state_v4 = {
   provider_config : string; [@key "provider"]
   instances : instance_object_state_v4 list; [@key "instances"]
 }
-[@@deriving yojson]
+[@@deriving json]
 
 type output_state_v4 = {
   (* value_raw: Yojson.Safe.t [@key "value"];
      value_type_raw: Yojson.Safe.t [@key "type"]; *)
   sensitive : bool; [@key "sensitive"] [@default false]
 }
-[@@deriving yojson]
+[@@deriving json]
 
 type state_v4 = {
   version : int; [@key "version"]
   terraform_version : string; [@key "terraform_version"]
-  serial : int64; [@key "serial"]
+  serial : int; [@key "serial"]
   lineage : string; [@key "lineage"]
   root_outputs : (string * output_state_v4) list; [@key "outputs"]
   resources : resource_state_v4 list; [@key "resources"]
   check_results : check_results_v4 list option;
       [@key "check_results"] [@default None]
 }
-[@@deriving yojson]
+[@@deriving json]
