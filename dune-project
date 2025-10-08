@@ -15,7 +15,7 @@
   odoc
   odoc-parser
   melange-json-native
-  yojson
+  (yojson (= 2.2.2))
   ppx_deriving_yojson
   (alcotest :with-test)
   (ocamlformat :with-dev-setup)
