@@ -6,6 +6,9 @@ maintainer: ["Clément Hurlin <clement.hurlin@tweag.io>"]
 authors: ["Clément Hurlin <clement.hurlin@tweag.io>"]
 homepage: "https://github.com/churlin/stratocaml"
 bug-reports: "https://github.com/churlin/stratocaml/issues"
+pin-depends: [
+  [ "query-json.dev" "git+https://github.com/davesnx/query-json.git#0.5.21" ]
+]
 depends: [
   "dune" {>= "3.12"}
   "ocaml"
@@ -14,6 +17,7 @@ depends: [
   "melange-json-native"
   "yojson" {= "2.2.2"}
   "ppx_deriving_yojson"
+  "query-json"
   "alcotest" {with-test}
   "ocamlformat" {with-dev-setup}
   "ocaml-lsp-server" {with-dev-setup}

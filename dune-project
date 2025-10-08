@@ -17,6 +17,11 @@
   melange-json-native
   (yojson (= 2.2.2))
   ppx_deriving_yojson
+  query-json
   (alcotest :with-test)
   (ocamlformat :with-dev-setup)
   (ocaml-lsp-server :with-dev-setup)))
+
+(pin
+ (url "git+https://github.com/davesnx/query-json.git#0.5.21")
+ (package (name query-json)))
