@@ -1,4 +1,4 @@
 (lang dune 3.12)
 (repository
  (name query-json)
- (url "git+https://github.com/davesnx/query-json.git#0.5.21"))
+ (url "git+https://github.com/smelc/query-json.git#smelc-fork-for-stratocaml"))

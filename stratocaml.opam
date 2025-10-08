@@ -7,7 +7,7 @@ authors: ["Clément Hurlin <clement.hurlin@tweag.io>"]
 homepage: "https://github.com/churlin/stratocaml"
 bug-reports: "https://github.com/churlin/stratocaml/issues"
 pin-depends: [
-  [ "query-json.dev" "git+https://github.com/davesnx/query-json.git#0.5.21" ]
+  [ "query-json.dev" "git+https://github.com/smelc/query-json.git#smelc-fork-for-stratocaml" ]
 ]
 depends: [
   "dune" {>= "3.12"}

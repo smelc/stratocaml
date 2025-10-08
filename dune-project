@@ -23,5 +23,5 @@
   (ocaml-lsp-server :with-dev-setup)))
 
 (pin
- (url "git+https://github.com/davesnx/query-json.git#0.5.21")
+ (url "git+https://github.com/smelc/query-json.git#smelc-fork-for-stratocaml")
  (package (name query-json)))
